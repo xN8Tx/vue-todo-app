@@ -4,7 +4,8 @@
   "info": {
     "singularName": "task",
     "pluralName": "tasks",
-    "displayName": "Task"
+    "displayName": "Task",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,11 @@
     "completedAt": {
       "type": "datetime"
     },
+    "isPinned": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
     "isCompleted": {
       "type": "boolean",
       "default": false,
@@ -32,6 +38,11 @@
       "relation": "manyToOne",
       "target": "api::list.list",
       "inversedBy": "tasks"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
