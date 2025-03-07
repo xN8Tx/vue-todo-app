@@ -1,0 +1,19 @@
+{
+  "name": "vue-todo-app",
+  "version": "1.0.0",
+  "description": "Test TODO application based on TypeScript, Vue and Strapi",
+  "main": "index.js",
+  "scripts": {
+    "develop": "docker-compose -f ./config/dev/docker-compose.yaml up --build -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xN8Tx/vue-todo-app.git"
+  },
+  "author": "Evgeniy <evgeniyshteyn@ya.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xN8Tx/vue-todo-app/issues"
+  },
+  "homepage": "https://github.com/xN8Tx/vue-todo-app#readme"
+}

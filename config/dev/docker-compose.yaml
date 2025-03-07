@@ -1,0 +1,43 @@
+services:
+  vue-todo-app-strapi:
+    container_name: vue-todo-app-strapi-dev
+    build:
+      context: ../../app/strapi
+      dockerfile: Dockerfile.dev
+    restart: always
+    env_file:
+      - ./strapi.env
+    volumes:
+      - ../../app/strapi/src:/opt/app/src
+      - ../../app/strapi/.tmp:/opt/app/.tmp
+      - ../../app/strapi/public:/opt/app/public
+      - ../../app/strapi/config:/opt/app/config
+      - ../../app/strapi/types:/opt/app/types
+    expose:
+      - 1337
+    ports:
+      - 1337:1337
+    networks:
+      - vue-todo-app
+  #  vue-todo-app-client:
+  #    container_name: vue-todo-app-client-dev
+  #    build:
+  #      context: ../../app/client
+  #      dockerfile: Dockerfile.dev
+  #    restart: always
+  #    env_file:
+  #      - ./client.env
+  #    volumes:
+  #      - ../../app/client/public:/opt/app/public
+  #      - ../../app/client/src:/opt/app/src
+  #    expose:
+  #      - 5173
+  #    ports:
+  #      - 5173:5173
+  #    networks:
+  #      - vue-todo-app
+
+networks:
+  vue-todo-app:
+    name: VueTodoApp
+    driver: bridge
